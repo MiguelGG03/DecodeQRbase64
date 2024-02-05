@@ -1,17 +1,16 @@
+from PIL import Image
 import pyzbar.pyzbar as pyzbar
 
-def decode(image):
+# Function to decode QR codes from an image
+def decode(image_path):
+    # Open the image file
+    image = Image.open(image_path)
+    # Use pyzbar to decode the QR code
     decoded_objects = pyzbar.decode(image)
     return decoded_objects
 
 if __name__ == "__main__":
-    
-    print(decode("flag.png"))
-    
-    """
-    N = int(input("Enter the number of times to decode: "))
-    image = "flag.png"
-    for i in range(N):
-        image = decode(image)
-        print(image)
-    """
+    # Path to the image file
+    image_path = "flag.png"
+    # Print the decoded objects
+    print(decode(image_path))
