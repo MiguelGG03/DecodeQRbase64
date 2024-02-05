@@ -1,5 +1,6 @@
 from PIL import Image
 import pyzbar.pyzbar as pyzbar
+import base64
 
 # Function to decode QR codes from an image
 def decode(image_path):
@@ -9,8 +10,24 @@ def decode(image_path):
     decoded_objects = pyzbar.decode(image)
     return decoded_objects
 
-if __name__ == "__main__":
+def do():
     # Path to the image file
+    N = int(input("Enter the number of decodes: "))
     image_path = "flag.png"
-    # Print the decoded objects
-    print(decode(image_path))
+    decoded = decode(image_path)
+    if N == 1:
+        return decoded
+    elif N >= 1:
+        image = decoded[0].data
+        for _ in range(N):
+            image = base64.b64decode(image)
+        return image
+    else:
+        return "Invalid number of decodes"
+    
+def main():
+    print(do())
+    
+
+if __name__ == "__main__":
+    main()
