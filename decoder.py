@@ -6,6 +6,7 @@ def decode(image):
 
 if __name__ == "__main__":
     
+    print(decode("flag.png"))
     
     """
     N = int(input("Enter the number of times to decode: "))
