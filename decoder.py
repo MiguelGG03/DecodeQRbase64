@@ -10,6 +10,15 @@ def decode(image_path):
     decoded_objects = pyzbar.decode(image)
     return decoded_objects
 
+    """
+    def decode_base64(encoded_data):
+        # Decode the Base64 encoded data
+        decoded_bytes = base64.b64decode(encoded_data)
+        # Convert to string
+        decoded_string = decoded_bytes.decode('utf-8')
+        return decoded_string
+
+    """
 def do(path="flag.png"):
     # Path to the image file
     N = int(input("Enter the number of decodes: "))
