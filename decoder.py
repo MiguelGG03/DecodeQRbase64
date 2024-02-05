@@ -10,10 +10,10 @@ def decode(image_path):
     decoded_objects = pyzbar.decode(image)
     return decoded_objects
 
-def do():
+def do(path="flag.png"):
     # Path to the image file
     N = int(input("Enter the number of decodes: "))
-    image_path = "flag.png"
+    image_path = path
     decoded = decode(image_path)
     if N == 1:
         return decoded
@@ -26,7 +26,7 @@ def do():
         return "Invalid number of decodes"
     
 def main():
-    print(do())
+    print(do("flag.png"))
     
 
 if __name__ == "__main__":
